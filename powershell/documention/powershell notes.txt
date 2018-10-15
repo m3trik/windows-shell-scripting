@@ -1,0 +1,18 @@
+powershell notes----------------------
+
+
+COMMENTING:
+#single line
+
+<# multi-
+	line #>
+
+
+
+
+
+
+
+EDITOR:
+change remote script execution policy:
+Set-ExecutionPolicy RemoteSigned

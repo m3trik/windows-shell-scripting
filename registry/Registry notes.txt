@@ -1,0 +1,8 @@
+commenting		;comments out a single line in a reg file
+
+
+example reg file:
+Windows Registry Editor Version 5.00
+
+[HKEY_CURRENT_USER\Software\Classes\Local Settings\Software\Microsoft\Windows\Shell\Bags\AllFolders\Shell]
+"FolderType"="NotSpecified" 

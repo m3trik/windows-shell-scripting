@@ -40,9 +40,9 @@ IF errorlevel 0 goto Cloud_userVar
 REM set paths here.
 
 set cloudDir=O:\Cloud
-set pythonPath=%CLOUD%\_Coding\Python\2.7\_PATH
+set pythonPath=%CLOUD%\_programming\Python\2.7\__path; %CLOUD%\____Graphics\3ds Max\Scripts\__path; %CLOUD%\____Graphics\Maya\Scripts\__path
 set mayaAppDir=%CLOUD%\____Graphics\Maya\Preference\_app_dir_startup
-set mayaPythonPath=%CLOUD%\____Graphics\Maya\Scripts\_Python\_Python_startup; %CLOUD%\____Graphics\3ds Max\Scripts\_Python\___Python_path
+set mayaPythonPath=%CLOUD%\____Graphics\Maya\Scripts\__path; %CLOUD%\____Graphics\3ds Max\Scripts\__path
 
 
 

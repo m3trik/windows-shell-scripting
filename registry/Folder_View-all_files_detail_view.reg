@@ -1,0 +1,12 @@
+;Description
+;
+;Merging the .reg file will set the 'All Items' template for any folders that don't currently have a view saved with a different template. You can clear all saved views by deleting the
+;"HKCU\Software\Classes\Local Settings\Software\Microsoft\Windows\Shell\Bags"
+;key BEFORE merging the .reg file. If any folders open with a different template after clearing the 'Bags' key & merging the .reg file, they most likely have a template specified via their desktop.ini file.
+
+Windows Registry Editor Version 5.00
+
+[HKEY_CURRENT_USER\Software\Classes\Local Settings\Software\Microsoft\Windows\Shell\Bags\AllFolders\Shell]
+"FolderType"="NotSpecified" 
+
+;currently not working
