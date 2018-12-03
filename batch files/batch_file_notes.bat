@@ -52,6 +52,16 @@ set variable= str1 str2 str3
 
 
 
+rem strip chars (in this case '!')
+set string=%string:!=%
+
+rem strip multiple chars (from 1.2.3.4 to 1,2,3,4) 
+setlocal 
+set string=1.2.3.4 
+set string=%string:.=,%
+
+
+
 
 
 rem variables --------------------------------
