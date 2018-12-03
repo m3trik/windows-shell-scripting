@@ -105,3 +105,16 @@ if /i %choice%==two goto two
 if /i %choice%==end goto end
 
 
+
+
+
+rem reg keys ---------------------------------
+
+rem delete key
+reg delete "HKCU\Some\Registry\Path" /f
+rem alt:
+[-HKEY_LOCAL_MACHINE\SOFTWARE\YourSoft\MyKey]
+rem to remove an entry, place a minus "-" after the = char
+[HKEY_LOCAL_MACHINE\SOFTWARE\YourSoft\MyKey]
+"MyEntry"=-
+
