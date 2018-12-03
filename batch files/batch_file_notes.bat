@@ -47,7 +47,7 @@ rem operands ---------------------------------
 rem strings ----------------------------------
 
 rem concatenate:
-set variables= str1 str2 str3
+set variable= str1 str2 str3
 
 
 
