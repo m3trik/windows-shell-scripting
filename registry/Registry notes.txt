@@ -1,8 +1,11 @@
-commenting		;comments out a single line in a reg file
+;commenting
+;comments out a single line in a reg file
 
 
-example reg file:
+;example reg file header:
 Windows Registry Editor Version 5.00
 
-[HKEY_CURRENT_USER\Software\Classes\Local Settings\Software\Microsoft\Windows\Shell\Bags\AllFolders\Shell]
+[HKEY_CURRENT_USER\Software\Classes\LocalSettings\Software\Microsoft\Windows\Shell\Bags\AllFolders\Shell]
 "FolderType"="NotSpecified" 
+
+
