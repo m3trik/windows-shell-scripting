@@ -27,33 +27,26 @@ IF ERRORLEVEL 1 goto create
 
 
 :create
-mklink /J "%directory%\ZProjects" "%CLOUD%\__Graphics\Zbrush\ZProjects [-J]"
+mklink /J "%directory%\ZScripts" "%CLOUD%\__Graphics\Zbrush\__Zscripts [-j]"
 
-mklink /J "%directory%\ZScripts" "%CLOUD%\__Graphics\Zbrush\__Zscripts\___Zscripts [-J]"
-
-mklink /J "%directory%\ZStartup\ZPlugs" "%CLOUD%\__Graphics\Zbrush\__Plug-ins\___ZPlugs [-J]"
-
-mklink /J "%directory%\ZStartup\ZPlugs64" "%CLOUD%\__Graphics\Zbrush\__Plug-ins\___ZPlugs64 [-J]"
-
-mklink /J "%directory%\ZStartup\BrushPresets" "%CLOUD%\__Graphics\Zbrush\brushes\___Brush Presets [-J]"
+mklink /J "%directory%\ZStartup" "%CLOUD%\__Graphics\Zbrush\__ZStartup [-j]"
 
 PAUSE
 EXIT
+
+
 
 
 :remove
-RMDIR	"%directory%\ZProjects"
-
 RMDIR	"%directory%\ZScripts"
 
-RMDIR	"%directory%\ZStartup\ZPlugs"
-
-RMDIR	"%directory%\ZStartup\ZPlugs64"
-
-RMDIR	"%directory%\ZStartup\BrushPresets"
+RMDIR	"%directory%\ZStartup"
 
 PAUSE
 EXIT
+
+
+
 
 
 :exit

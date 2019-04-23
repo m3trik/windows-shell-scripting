@@ -8,7 +8,7 @@ shortcutjs.bat -linkfile "%USERPROFILE%\Desktop\testFolder.lnk" -target "%USERPR
 rem -linkarguments linkarguments  
 rem -description description
 rem -iconlocation iconlocation
-rem -hotkey hotkey]
+rem -hotkey hotkey
 rem -windowstyle 1|3|7
 
 

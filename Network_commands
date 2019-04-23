@@ -1,0 +1,12 @@
+Command prompt Network Diagnostics
+
+
+
+
+ipconfig
+
+ping <default gateway> ie. ping 192.168.0.1
+
+ping <remote address>	ie. ping www.google.com
+
+
