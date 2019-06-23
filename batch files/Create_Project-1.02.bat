@@ -12,7 +12,7 @@ set "subFolderPrefix=%projectName%"
 
 rem set initial folder location
 rem set "folderLocation=%~dp0"  <use this instead of line below to default to batch file dir location.
-set "folderLocation=%CLOUD%\__Graphics\__projects"
+set "folderLocation=%CLOUD%\__Graphics\___projects"
 rem strip any trailing '\'
 if %folderLocation:~-1%==\ SET folderLocation=%folderLocation:~0,-1%
 
