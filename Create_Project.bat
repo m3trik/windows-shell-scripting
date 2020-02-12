@@ -12,7 +12,7 @@ set "subFolderPrefix=%projectName%"
 
 rem set initial folder location
 rem set "folderLocation=%~dp0"  <use this instead of line below to default to batch file dir location.
-set "folderLocation=%CLOUD%\__Graphics\___projects"
+set "folderLocation=\\M3trik-desktop\O\___projects\"
 rem strip any trailing '\'
 if %folderLocation:~-1%==\ SET folderLocation=%folderLocation:~0,-1%
 
@@ -99,6 +99,7 @@ echo:
 set "folderName=.images"
 mkdir %directory%\%folderName% &^
 mkdir %directory%\%folderName%\.reference_images &^
+mkdir %directory%\%folderName%\.client &^
 mkdir %directory%\%folderName%\.render &^
 echo %folderName% and all subdirectories; created.
 echo:
@@ -108,7 +109,7 @@ echo:
 set "folderName=.textures"
 mkdir %directory%\%folderName% &^
 mkdir %directory%\%folderName%\.maps &^
-mkdir %directory%\%folderName%\.uv &^
+mkdir %directory%\%folderName%\.maps\.uv &^
 echo %folderName% and all subdirectories; created.
 echo:
 
@@ -134,16 +135,6 @@ mkdir %directory%\%folderName% &^
 mkdir %directory%\%folderName%\.assets &^
 echo %folderName% and all subdirectories; created.
 echo:
-
-
-
-set "folderName=.scripts"
-mkdir %directory%\%folderName% &^
-echo %folderName% and all subdirectories; created.
-echo:
-
-
-
 
 
 

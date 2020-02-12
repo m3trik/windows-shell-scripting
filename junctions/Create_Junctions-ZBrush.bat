@@ -27,9 +27,8 @@ IF ERRORLEVEL 1 goto create
 
 
 :create
-mklink /J "%directory%\ZScripts" "%CLOUD%\__Graphics\Zbrush\__Zscripts [-j]"
-
-mklink /J "%directory%\ZStartup" "%CLOUD%\__Graphics\Zbrush\__ZStartup [-j]"
+mklink /J "%directory%\ZScripts" "%CLOUD%\__Graphics\apps\Zbrush\__Zscripts [-j]"
+mklink /J "%directory%\ZStartup" "%CLOUD%\__Graphics\apps\Zbrush\__ZStartup [-j]"
 
 PAUSE
 EXIT
@@ -39,7 +38,6 @@ EXIT
 
 :remove
 RMDIR	"%directory%\ZScripts"
-
 RMDIR	"%directory%\ZStartup"
 
 PAUSE

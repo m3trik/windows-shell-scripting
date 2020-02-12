@@ -15,9 +15,9 @@ IF ERRORLEVEL 1 goto create
 
 
 :create
-mklink /J "C:\Program Files\Allegorithmic\Substance Painter 2\PlugIns" 	"%CLOUD%\____Graphics\_Texturing\Substance\_Plugins [-J]"
-mklink /J "%USERPROFILE%\Documents\Substance Painter 2\plugins"		"%CLOUD%\____Graphics\_Texturing\Substance\_Plugins [-J]"
-mklink /J "%USERPROFILE%\Documents\Substance Painter 2\shelf"		"%CLOUD%\____Graphics\_Texturing\Substance\_Shelf [-J]"
+mklink /J "C:\Program Files\Allegorithmic\Substance Painter 2\PlugIns" 	"%CLOUD%\__Graphics\apps\Substance\_Plugins [-J]"
+mklink /J "%USERPROFILE%\Documents\Substance Painter 2\plugins"		"%CLOUD%\__Graphics\apps\Substance\_Plugins [-J]"
+mklink /J "%USERPROFILE%\Documents\Substance Painter 2\shelf"		"%CLOUD%\__Graphics\apps\Substance\_Shelf [-J]"
 
 PAUSE
 EXIT

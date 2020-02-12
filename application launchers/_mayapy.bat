@@ -7,28 +7,19 @@
 
 
 :: name of temp file that will perform the imports and the module to import.
-set "TMP=__mayapy__.py"
+set "TMP=__mayapy.py"
 set "TAB=	"
 
-:: create a temp python file to import maya standalone and run specified the python module.
+:: create a temp python file to import maya standalone and run any additional modules.
 (
 echo import maya.standalone
-echo.
 echo maya.standalone.initialize(name='python'^)
-echo.
 echo import userSetup
-echo import keyboard
-echo.
-echo hotkey = 'f12' #define hot-key
-echo.
-echo def event(^):
-echo %TAB%if 'tk' not in locals(^) or 'tk' not in globals(^): import tk_main; tk = tk_main.createInstance(^)
-echo %TAB%if not tk.isVisible(^): tk.show(^)
-echo.
-echo keyboard.add_hotkey(hotkey, event^) #attach the function to hot-key
-echo.
-echo maya.standalone.uninitialize(^)
+:: echo.
+:: echo maya.standalone.uninitialize(^)
 )> %tmp%
+
+
 
 :: run the temp file
 mayapy.exe %tmp%

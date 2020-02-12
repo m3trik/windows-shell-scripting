@@ -1,6 +1,7 @@
 @ECHO OFF
 CLS
 ECHO Create or remove 3ds Max junctions.
+ECHO Compresses and deletes the contents at the original dir location if they are present.
 ECHO/
 
 rem set variables
@@ -8,7 +9,7 @@ set /p VERSION=Enter 3ds Max version:
 ECHO/
 
 set "WINRAR=%ProgramFiles%\WinRAR\Rar.exe"
-set "DEST=%CLOUD%\__Graphics\3ds Max\ENU [-j]"
+set "DEST=%CLOUD%\__Graphics\apps\3ds Max\ENU -j"
 set "SOURCE=%USERPROFILE%\AppData\Local\Autodesk\3dsMax\%VERSION% - 64bit\ENU"
 
 
