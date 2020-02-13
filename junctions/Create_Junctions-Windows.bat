@@ -11,11 +11,13 @@ ECHO/
 ECHO	1- User Specified Dir
 ECHO	2- Links
 ECHO	3- Start Menu
-ECHO	4- Exit
+ECHO	4- Downloads
+ECHO	5- Exit
 
-CHOICE /C:1234
+CHOICE /C:12345
 
-IF ERRORLEVEL 4 goto exit
+IF ERRORLEVEL 5 goto exit_
+IF ERRORLEVEL 4 goto downloads
 IF ERRORLEVEL 3 goto startmenu
 IF ERRORLEVEL 2 goto links
 IF ERRORLEVEL 1 goto makedir
@@ -40,14 +42,22 @@ EXIT
 
 
 :userset
-set /p source=original folder location: 
-set /p destination=destination folder location: 
+ECHO/
+set /p source=original folder location?
+set /p destination=destination directory? 
 goto create
 
 
 :userremove
-set /p destination=destination folder location: 
+ECHO/
+set /p destination=destination directory? 
 goto remove
+
+
+:userset_dir
+ECHO/
+set /p destination=destination directory?
+goto create
 
 
 
@@ -88,21 +98,50 @@ IF ERRORLEVEL 1 goto create
 
 
 
+:downloads
+cls
+echo downloads
+set source=%USERPROFILE%\downloads
+set destination=%STORAGE%\_Download
+
+ECHO	1- Create Junction
+ECHO	2- Delete Junction
+ECHO	3- Back to Main Menu
+
+CHOICE /C:123
+
+IF ERRORLEVEL 3 goto main
+IF ERRORLEVEL 2 goto remove
+IF ERRORLEVEL 1 goto create
+
+
+
 :create
-mklink /J "%source%"	"%destination%"
+ECHO/
+echo %source%
+echo %destination%
+
+ECHO	1- Continue
+ECHO	2- Change Destination Directory
+
+CHOICE /C:12
+
+IF ERRORLEVEL 2 mklink /J goto userset_dir
+IF ERRORLEVEL 1 mklink /J "%source%" "%destination%"
 
 PAUSE
 goto main
+
 
 
 
 :remove
-RMDIR "%destination%"
+RMDIR "%source%"
 
 PAUSE
 goto main
 
 
 
-:exit
+:exit_
 CLS

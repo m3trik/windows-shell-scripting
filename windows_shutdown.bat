@@ -8,7 +8,7 @@ rem set ERRORLEVEL=0
 goto startCode
 
 :startCode
-echo	1- Restart
+echo	1- Screensaver
 echo	2- Restart /Advance Boot
 echo	3- Sleep
 echo	4- Sleep Timer
@@ -16,23 +16,23 @@ echo	5- Hibernate
 echo	6- Hibernate Timer
 echo	7- Log Off
 echo	8- Turn Off Display
-echo	9- Screensaver
+echo	R- Restart
 echo	S- Shutdown
 echo	A- Abort
 
-choice /C:123456789sa
+choice /C:12345678rsa
 
 if errorlevel 11 goto abort
-if errorlevel 10 goto shutdown
-if errorlevel 9 goto screensaver
-if errorlevel 8 goto turnOffDisplay
-if errorlevel 7 goto logoff
-if errorlevel 6 goto setHibernateTimer
-if errorlevel 5 goto hibernate
-if errorlevel 4 goto setSleepTimer
-if errorlevel 3 goto sleep
-if errorlevel 2 goto restartAdvancedBoot
-if errorlevel 1 goto restart
+if errorlevel 10 goto shutdown_
+if errorlevel 9 goto restart
+if errorlevel 8 goto screensaver
+if errorlevel 7 goto turnOffDisplay
+if errorlevel 6 goto logoff_
+if errorlevel 5 goto setHibernateTimer
+if errorlevel 4 goto hibernate
+if errorlevel 3 goto setSleepTimer
+if errorlevel 2 goto sleep
+if errorlevel 1 goto restartAdvancedBoot
 
 
 
@@ -118,7 +118,7 @@ shutdown /s /t %timer%
 timeout /t %timer%
 exit
 
-:logoff
+:logoff_
 shutdown /l /c "logging off current user" /t 2
 exit
 
@@ -130,7 +130,7 @@ exit
 nircmd screensaver
 exit
 
-:shutdown
+:shutdown_
 shutdown /s /c "shutting down" /t 30
 timeout /t 30
 

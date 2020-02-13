@@ -95,21 +95,25 @@ echo "checking for the existence of subdirectories..."
 echo:
 
 
+set "folderName=.client"
+mkdir %directory%\%folderName% &^
+mkdir %directory%\%folderName%\.revisions &^
+echo %folderName% and all subdirectories; created.
+echo:
+
 
 set "folderName=.images"
 mkdir %directory%\%folderName% &^
 mkdir %directory%\%folderName%\.reference_images &^
-mkdir %directory%\%folderName%\.client &^
 mkdir %directory%\%folderName%\.render &^
 echo %folderName% and all subdirectories; created.
 echo:
 
 
 
-set "folderName=.textures"
+set "folderName=.maps"
 mkdir %directory%\%folderName% &^
-mkdir %directory%\%folderName%\.maps &^
-mkdir %directory%\%folderName%\.maps\.uv &^
+mkdir %directory%\%folderName%\.uv &^
 echo %folderName% and all subdirectories; created.
 echo:
 

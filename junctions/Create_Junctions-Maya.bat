@@ -17,7 +17,7 @@ IF ERRORLEVEL 1 goto create
 
 
 :create
-mklink /J "%USERPROFILE%\Documents\maya"	"%CLOUD%\__Graphics\apps\Maya\Preferences\_app_dir_startup [-J]"
+mklink /J "%USERPROFILE%\Documents\maya" "%CLOUD%\__Graphics\apps\Maya\Preferences\_app dir startup -j"
 
 
 
