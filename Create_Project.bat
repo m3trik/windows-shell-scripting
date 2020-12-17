@@ -111,9 +111,10 @@ echo:
 
 
 
-set "folderName=.maps"
+set "folderName=.textures"
 mkdir %directory%\%folderName% &^
-mkdir %directory%\%folderName%\.uv &^
+mkdir %directory%\%folderName%\.maps &^
+mkdir %directory%\%folderName%\.maps\.uv &^
 echo %folderName% and all subdirectories; created.
 echo:
 

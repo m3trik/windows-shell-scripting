@@ -15,18 +15,18 @@ IF ERRORLEVEL 1 goto create
 
 
 :create
-mklink /J "C:\Program Files\Allegorithmic\Substance Painter 2\PlugIns" 	"%CLOUD%\__Graphics\apps\Substance\_Plugins [-J]"
-mklink /J "%USERPROFILE%\Documents\Substance Painter 2\plugins"		"%CLOUD%\__Graphics\apps\Substance\_Plugins [-J]"
-mklink /J "%USERPROFILE%\Documents\Substance Painter 2\shelf"		"%CLOUD%\__Graphics\apps\Substance\_Shelf [-J]"
+rem mklink /J "C:\Program Files\Allegorithmic\Substance Painter 2\PlugIns" 	"%CLOUD%\__Graphics\apps\Substance\_Plugins [-J]"
+mklink /J "%USERPROFILE%\Documents\Allegorithmic\Substance Painter\plugins"		"%CLOUD%\__Graphics\apps\Substance\_Plugins [-J]"
+mklink /J "%USERPROFILE%\Documents\Allegorithmic\Substance Painter\shelf"		"%CLOUD%\__Graphics\apps\Substance\_Shelf [-J]"
 
 PAUSE
 EXIT
 
 
 :remove
-RMDIR "C:\Program Files\Allegorithmic\Substance Painter 2\PlugIns"
-RMDIR "%USERPROFILE%\Documents\Substance Painter 2\Plugins"
-RMDIR "%USERPROFILE%\Documents\Substance Painter 2\shelf"
+rem RMDIR "C:\Program Files\Allegorithmic\Substance Painter 2\PlugIns"
+RMDIR "%USERPROFILE%\Documents\Allegorithmic\Substance Painter\Plugins"
+RMDIR "%USERPROFILE%\Documents\Allegorithmic\Substance Painter\shelf"
 
 
 PAUSE
