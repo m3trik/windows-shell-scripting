@@ -2,10 +2,10 @@
 cls
 
 
-
+:: globals
 ::set path to current file location
 set "path_=%~dp0"
-::Does string have a trailing slash? if so remove it 
+::does string have a trailing slash? if so remove it 
 if %path_:~-1%==\ SET path_=%path_:~0,-1%
 
 
