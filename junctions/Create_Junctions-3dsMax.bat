@@ -3,18 +3,37 @@ CLS
 ECHO Create or remove 3ds Max junctions.
 ECHO Compresses and deletes the contents at the original dir location if they are present.
 ECHO/
-
-rem set variables
-set /p VERSION=Enter 3ds Max version: 
-ECHO/
-
 set "WINRAR=%ProgramFiles%\WinRAR\Rar.exe"
-set "DEST=%CLOUD%\__Graphics\apps\3ds Max\ENU -j"
-set "SOURCE=%USERPROFILE%\AppData\Local\Autodesk\3dsMax\%VERSION% - 64bit\ENU"
+set "DEST=%CLOUD%\Graphics\3ds Max\_symlinks\ENU"
 
+goto version
+
+
+
+
+:version
+rem set variables
+set /p VERSION=Enter 3ds Max version (ie.20xx):
+ECHO/
+set "SOURCE=%USERPROFILE%\AppData\Local\Autodesk\3dsMax\%VERSION% - 64bit\ENU"
 
 goto main
 
+
+
+
+:main
+ECHO	1- Create 3ds Max Junctions at %DEST% for 3ds Max %VERSION%.
+ECHO	2- Delete Existing 3ds Max Junctions for 3ds Max %VERSION%.
+ECHO	3- Set version.
+ECHO	4- EXIT
+
+CHOICE /C:1234
+
+IF ERRORLEVEL 4 goto exit_
+IF ERRORLEVEL 3 goto version
+IF ERRORLEVEL 2 goto remove
+IF ERRORLEVEL 1 goto create
 
 
 
@@ -24,13 +43,11 @@ rem set working directory
 CD /d %SOURCE%
 
 rem compress existing file.
-::UI folder
+:: UI folder
 "%WINRAR%" a -r -y -df -idq "%SOURCE%.rar" "%SOURCE%"
 mklink /J "%SOURCE%" "%DEST%"
 echo/
 
-PAUSE
-CLS
 goto main
 
 
@@ -55,27 +72,12 @@ if exist "%SOURCE%.rar"
 	del "%SOURCE%.rar"
 )
 
-
-PAUSE
-CLS
 goto main
 
 
 
 
 
-:main
-ECHO	1- Create 3ds Max Junctions at %DEST%
-ECHO	2- Delete Existing 3ds Max Junctions
-ECHO	3- Exit
-
-CHOICE /C:123
-
-IF ERRORLEVEL 3 goto exit_
-IF ERRORLEVEL 2 goto remove
-IF ERRORLEVEL 1 goto create
-
-
 :exit_
 CLS
-PAUSE
+EXIT

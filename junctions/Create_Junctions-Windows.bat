@@ -4,8 +4,9 @@ goto main
 
 
 
+
 :main
-CLS
+ECHO/
 ECHO Create or remove Junction for:
 ECHO/
 ECHO	1- User Specified Dir
@@ -24,9 +25,9 @@ IF ERRORLEVEL 1 goto makedir
 
 
 
-:makedir
-cls
 
+:makedir
+ECHO/
 ECHO	1- Create Junction
 ECHO	2- Delete Junction
 ECHO	3- Back to Main Menu
@@ -36,8 +37,9 @@ CHOICE /C:123
 IF ERRORLEVEL 3 goto main
 IF ERRORLEVEL 2 goto userremove
 IF ERRORLEVEL 1 goto userset
-PAUSE
-EXIT
+
+goto main
+
 
 
 
@@ -61,14 +63,15 @@ goto create
 
 
 
+
 :links
-cls
+ECHO/
 echo links
 set source=%USERPROFILE%\Favorites\Links
-set destination=%CLOUD%\Windows\shortcuts\Links [-j]
+set destination=%CLOUD%\Windows\_symlinks\Links
 
-ECHO	1- Create Junction
-ECHO	2- Delete Junction
+ECHO	1- Create Junction at %source% to %destination%.
+ECHO	2- Delete Junction at %source%.
 ECHO	3- Back to Main Menu
 
 CHOICE /C:123
@@ -76,18 +79,19 @@ CHOICE /C:123
 IF ERRORLEVEL 3 goto main
 IF ERRORLEVEL 2 goto remove
 IF ERRORLEVEL 1 goto create
+
 
 
 
 :startmenu
-cls
+ECHO/
 echo start menu
-set source=%USERPROFILE%\AppData\Roaming\Microsoft\Windows
+set source=%USERPROFILE%\AppData\Roaming\Microsoft\Windows\Start Menu
 rem set source=%USERPROFILE%\Desktop\new folder
-set destination=%CLOUD%\Windows\shortcuts\Start Menu [-j]
+set destination=%CLOUD%\Windows\_symlinks\Start Menu
 
-ECHO	1- Create Junction
-ECHO	2- Delete Junction
+ECHO	1- Create Junction at %source% to %destination%.
+ECHO	2- Delete Junction at %source%.
 ECHO	3- Back to Main Menu
 
 CHOICE /C:123
@@ -95,17 +99,18 @@ CHOICE /C:123
 IF ERRORLEVEL 3 goto main
 IF ERRORLEVEL 2 goto remove
 IF ERRORLEVEL 1 goto create
+
 
 
 
 :downloads
-cls
+ECHO/
 echo downloads
 set source=%USERPROFILE%\downloads
-set destination=%STORAGE%\_Download
+set destination=%CLOUD%\Downloads
 
-ECHO	1- Create Junction
-ECHO	2- Delete Junction
+ECHO	1- Create Junction at %source% to %destination%.
+ECHO	2- Delete Junction at %source%.
 ECHO	3- Back to Main Menu
 
 CHOICE /C:123
@@ -113,35 +118,32 @@ CHOICE /C:123
 IF ERRORLEVEL 3 goto main
 IF ERRORLEVEL 2 goto remove
 IF ERRORLEVEL 1 goto create
+
 
 
 
 :create
 ECHO/
-echo %source%
-echo %destination%
+ECHO Creating link at %source% to %destination% ..
 
-ECHO	1- Continue
-ECHO	2- Change Destination Directory
+mklink /J "%source%" "%destination%"
 
-CHOICE /C:12
-
-IF ERRORLEVEL 2 mklink /J goto userset_dir
-IF ERRORLEVEL 1 mklink /J "%source%" "%destination%"
-
-PAUSE
 goto main
 
 
 
 
 :remove
+ECHO/
+ECHO Removing link at: %source% ..
+
 RMDIR "%source%"
 
-PAUSE
 goto main
+
 
 
 
 :exit_
 CLS
+EXIT

@@ -23,7 +23,14 @@ ECHO/
 ECHO Executing: System File Checker tool (SFC.exe) ...
 ECHO/
 
+rem exec SFC check
 sfc /scannow
+
+
+rem exec DISM checks
+dism /online /cleanup-image /scanhealth
+dism /online /cleanup-image /checkhealth
+dism /online /cleanup-image /restorehealth
 
 
 

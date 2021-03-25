@@ -1,36 +1,53 @@
 @ECHO OFF
 CLS
 REM create or remove photoshop junctions
-;comment
+goto version
 
-ECHO	1- Create Photoshop Junctions
-ECHO	2- Delete Photoshop Junctions
-ECHO	3- Exit
 
-CHOICE /C:123
 
-IF ERRORLEVEL 3 goto exit
+
+:version
+rem set variables
+set /p VERSION=Enter Photoshop version (ie.20xx):
+ECHO/
+
+goto main
+
+
+
+
+:main
+ECHO	1- Create junctions for Adobe Photoshop %VERSION%.
+ECHO	2- Delete junctions for Adobe Photoshop %VERSION%.
+ECHO	3- Change version.
+ECHO	4- Exit
+
+CHOICE /C:1234
+
+IF ERRORLEVEL 4 goto exit_
+IF ERRORLEVEL 3 goto version
 IF ERRORLEVEL 2 goto remove
 IF ERRORLEVEL 1 goto create
 
 
-:create
-mklink /J "%USERPROFILE%\AppData\Roaming\Adobe\Adobe Photoshop CC 2015\Plug-ins" "%CLOUD%\__Graphics\apps\Photoshop\preferences\___AppData [-J]\Plug-ins"
-mklink /J "%USERPROFILE%\AppData\Roaming\Adobe\Adobe Photoshop CC 2015\Presets"  "%CLOUD%\__Graphics\apps\Photoshop\preferences\___AppData [-J]\Presets"
 
-mklink /J "%USERPROFILE%\AppData\Roaming\Adobe\Adobe Photoshop CC 2017\Plug-ins" "%CLOUD%\__Graphics\apps\Photoshop\preferences\___AppData [-J]\Plug-ins"
-mklink /J "%USERPROFILE%\AppData\Roaming\Adobe\Adobe Photoshop CC 2017\Presets"  "%CLOUD%\__Graphics\apps\Photoshop\preferences\___AppData [-J]\Presets"
-PAUSE
-EXIT
+
+:create
+mklink /J "%USERPROFILE%\AppData\Roaming\Adobe\Adobe Photoshop %VERSION%\Plug-ins" "%CLOUD%\Graphics\Photoshop\_symlinks\appdata\Plug-ins"
+mklink /J "%USERPROFILE%\AppData\Roaming\Adobe\Adobe Photoshop %VERSION%\Presets"  "%CLOUD%\Graphics\Photoshop\_symlinks\appdata\Presets"
+
+goto main
+
+
 
 :remove
-RMDIR "%USERPROFILE%\AppData\Roaming\Adobe\Adobe Photoshop CC 2015\Plug-ins"
-RMDIR "%USERPROFILE%\AppData\Roaming\Adobe\Adobe Photoshop CC 2015\Presets"
+RMDIR "%USERPROFILE%\AppData\Roaming\Adobe\Adobe Photoshop %VERSION%\Plug-ins"
+RMDIR "%USERPROFILE%\AppData\Roaming\Adobe\Adobe Photoshop %VERSION%\Presets"
 
-RMDIR "%USERPROFILE%\AppData\Roaming\Adobe\Adobe Photoshop CC 2017\Plug-ins"
-RMDIR "%USERPROFILE%\AppData\Roaming\Adobe\Adobe Photoshop CC 2017\Presets"
-PAUSE
-EXIT
+goto main
 
-:exit
+
+
+:exit_
 CLS
+EXIT

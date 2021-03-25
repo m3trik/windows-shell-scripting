@@ -1,37 +1,45 @@
 @echo OFF
 CLS
-
 echo.
 echo	**If you have not already, you must first move and delete or zip original folders in default program directory so that the script is able to populate a new junction link in its place.**
+goto version
 
+
+
+
+:version
 echo.
-set /p version= zbrush version? (ie.20xx):
-set version=ZBrush %version%
-set directory=C:\Program Files\Pixologic\
-set directory=%directory%%version%
-echo %directory%
+set /p version=Enter the zbrush version (ie.20xx):
+set directory=%ProgramFiles%\Pixologic\ZBrush %version%
 
+goto main
+
+
+
+
+:main
 echo.
-echo	1- create zbrush junctions
-echo	2- remove zbrush junctions
-echo	3- exit
+echo	1- Create junctions for ZBrush %VERSION%.
+echo	2- Remove junctions for ZBrush %VERSION%.
+echo	3- Change version.
+echo	4- Exit
 
-CHOICE /C:123
+CHOICE /C:1234
 
-IF ERRORLEVEL 3 goto exit
+IF ERRORLEVEL 4 goto exit_
+IF ERRORLEVEL 3 goto version
 IF ERRORLEVEL 2 goto remove
 IF ERRORLEVEL 1 goto create
 
 
 
 
-
 :create
-mklink /J "%directory%\ZScripts" "%CLOUD%\__Graphics\apps\Zbrush\__Zscripts [-j]"
-mklink /J "%directory%\ZStartup" "%CLOUD%\__Graphics\apps\Zbrush\__ZStartup [-j]"
+ECHO/
+mklink /J "%directory%\ZScripts" "%CLOUD%\Graphics\Zbrush\_symlinks\ZScripts"
+mklink /J "%directory%\ZStartup" "%CLOUD%\Graphics\Zbrush\_symlinks\ZStartup"
 
-PAUSE
-EXIT
+goto main
 
 
 
@@ -40,12 +48,10 @@ EXIT
 RMDIR	"%directory%\ZScripts"
 RMDIR	"%directory%\ZStartup"
 
-PAUSE
-EXIT
+goto main
 
 
 
 
-
-:exit
+:exit_
 CLS
