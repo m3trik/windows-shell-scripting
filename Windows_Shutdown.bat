@@ -22,17 +22,17 @@ echo	A- Abort
 
 choice /C:12345678rsa
 
-if errorlevel 11 goto abort
-if errorlevel 10 goto shutdown_
-if errorlevel 9 goto restart
-if errorlevel 8 goto screensaver
-if errorlevel 7 goto turnOffDisplay
-if errorlevel 6 goto logoff_
-if errorlevel 5 goto setHibernateTimer
-if errorlevel 4 goto hibernate
-if errorlevel 3 goto setSleepTimer
-if errorlevel 2 goto sleep
-if errorlevel 1 goto restartAdvancedBoot
+if errorlevel A goto abort
+if errorlevel S goto shutdown_
+if errorlevel R goto restart
+if errorlevel 8 goto turnOffDisplay
+if errorlevel 7 goto logoff_
+if errorlevel 6 goto setHibernateTimer
+if errorlevel 5 goto hibernate
+if errorlevel 4 goto setSleepTimer
+if errorlevel 3 goto sleep
+if errorlevel 2 goto restartAdvancedBoot
+if errorlevel 1 goto screensaver
 
 
 
