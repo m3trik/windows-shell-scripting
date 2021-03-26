@@ -3,14 +3,13 @@
 :: dependancies: get-pip.py
 
 :: globals
-ECHO Verify the location of get-pip.py (default: current dir):
-set /p MODULE="get-pip.py"
+ECHO Verify the location of the 'get-pip.py' module:
+set /p _MODULE="O:\Cloud\Code\Windows\Shell\_scripts\3rd party dependancies\get-pip.py"
 ECHO/
-ECHO Verify the path to mayapy.exe and hit enter to install:
-set /p PYTHON_PATH="C:/Program Files/Autodesk/3ds Max 2020/3dsmax.exe"
+ECHO Verify the path to 3dsmaxpy.exe and hit enter to install:
+set /p _PYTHON="C:\Program Files\Autodesk\3ds Max 2020\3dsmaxpy.exe"
 
 
-%PYTHON_PATH% %MODULE%
+%_PYTHON% %_MODULE%
 
 PAUSE
-EXIT
