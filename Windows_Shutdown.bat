@@ -3,19 +3,19 @@
 cls
 rem Shutdown MS-DOS options menu.
 rem	dependancies: C:\Windows\System32\ nircmd.exe, PsShutdown.exe
+rem goto start_code
 
-rem set ERRORLEVEL=0
-goto startCode
 
-:startCode
-echo	1- Screensaver
-echo	2- Restart /Advance Boot
-echo	3- Sleep
-echo	4- Sleep Timer
-echo	5- Hibernate
-echo	6- Hibernate Timer
-echo	7- Log Off
-echo	8- Turn Off Display
+
+:start_code
+echo	0- Screensaver
+echo	1- Sleep
+echo	2- Sleep Timer
+echo	3- Hibernate
+echo	4- Hibernate Timer
+echo	5- Log Off
+echo	6- Turn Off Display
+echo	7- Restart -Advanced Boot
 echo	R- Restart
 echo	S- Shutdown
 echo	A- Abort
@@ -25,18 +25,19 @@ choice /C:12345678rsa
 if errorlevel A goto abort
 if errorlevel S goto shutdown_
 if errorlevel R goto restart
-if errorlevel 8 goto turnOffDisplay
-if errorlevel 7 goto logoff_
-if errorlevel 6 goto setHibernateTimer
-if errorlevel 5 goto hibernate
-if errorlevel 4 goto setSleepTimer
-if errorlevel 3 goto sleep
-if errorlevel 2 goto restartAdvancedBoot
-if errorlevel 1 goto screensaver
+if errorlevel 7 goto restartAdvancedBoot
+if errorlevel 6 goto turnOffDisplay
+if errorlevel 5 goto logoff_
+if errorlevel 4 goto setHibernateTimer
+if errorlevel 3 goto hibernate
+if errorlevel 2 goto setSleepTimer
+if errorlevel 1 goto sleep
+if errorlevel 0 goto screensaver
 
 
 
 :restart
+echo hey
 shutdown /r /c "restarting" /t 5
 timeout /t 5
 
@@ -48,15 +49,18 @@ choice /C:ae
 if errorlevel 1 goto abort else exit
 exit
 
+
 :restartAdvancedBoot
 shutdown /r /o /c "restarting to advanced boot option menu"
 exit
+
 
 :sleep
 rem $ Powercfg -H OFF
 rem Rundll32.exe Powrprof.dll,SetSuspendState Sleep
 C:\Windows\System32\psshutdown.exe -d -t 0 -accepteula
 exit
+
 
 :setSleepTimer
 echo	M- Minuites
@@ -67,6 +71,7 @@ choice /C:mh
 if errorlevel 2 goto sleepHours
 if errorlevel 1 goto sleepMinutes
 
+
 :sleepMinutes
 set /p sleepTimer=Set timer (minuites):
 Set /a timer="%sleepTimer% *60"
@@ -74,6 +79,7 @@ rem $ Powercfg -H OFF
 rem rundll32.exe powrprof.dll,SetSuspendState 0,1,0
 echo Sleep set for %sleepTimer% minuites.
 goto sleepExecute
+
 
 :sleepHours
 set /p sleepTimer=Set timer (minuites):
@@ -83,14 +89,17 @@ rem rundll32.exe powrprof.dll,SetSuspendState 0,1,0
 echo Sleep set for %sleepTimer% minuites.
 goto sleepExecute
 
+
 :sleepExecute
 C:\Windows\System32\psshutdown.exe -d -t %timer% -accepteula
 timeout /t %timer%
 exit
 
+
 :hibernate
 shutdown /h
 exit
+
 
 :setHibernateTimer
 echo	M- Minuites
@@ -101,11 +110,13 @@ choice /C:mh
 if errorlevel 2 goto hibernateHours
 if errorlevel 1 goto hibernateMinutes
 
+
 :hibernateMinutes
 set /p hibernateTimer=Set timer (minuites):
 Set /a timer="%hibernateTimer% *60"
 echo Hibernate set for %hibernateTimer% minuites.
 goto hibernateExecute
+
 
 :hibernateHours
 set /p hibernateTimer=Set timer (hours):
@@ -113,22 +124,27 @@ Set /a timer="%hibernateTimer% *3600"
 echo Hibernate set for %hibernateTimer% hours.
 goto hibernateExecute
 
+
 :hibernateExecute
 shutdown /s /t %timer%
 timeout /t %timer%
 exit
 
+
 :logoff_
 shutdown /l /c "logging off current user" /t 2
 exit
+
 
 :turnOffDisplay
 nircmd monitor off
 exit
 
+
 :screensaver
 nircmd screensaver
 exit
+
 
 :shutdown_
 shutdown /s /c "shutting down" /t 30
@@ -142,9 +158,11 @@ choice /C:ae
 if errorlevel 1 goto abort else exit
 exit
 
+
 :abort
 shutdown /a
 exit
+
 
 :exit
 exit
