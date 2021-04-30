@@ -12,7 +12,7 @@ set "subFolderPrefix=%projectName%"
 
 rem set initial folder location
 rem set "folderLocation=%~dp0"  <use this instead of line below to default to batch file dir location.
-set "folderLocation=\\M3trik-desktop\D:\___projects"
+set "folderLocation=\\m3trik-Server\NAS\Graphics\___Projects"
 rem strip any trailing '\'
 if %folderLocation:~-1%==\ SET folderLocation=%folderLocation:~0,-1%
 
@@ -95,14 +95,14 @@ echo "checking for the existence of subdirectories..."
 echo:
 
 
-set "folderName=.client"
+set "folderName=client"
 mkdir %directory%\%folderName% &^
 mkdir %directory%\%folderName%\.revisions &^
 echo %folderName% and all subdirectories; created.
 echo:
 
 
-set "folderName=.images"
+set "folderName=images"
 mkdir %directory%\%folderName% &^
 mkdir %directory%\%folderName%\.reference_images &^
 mkdir %directory%\%folderName%\.render &^
@@ -111,7 +111,7 @@ echo:
 
 
 
-set "folderName=.textures"
+set "folderName=textures"
 mkdir %directory%\%folderName% &^
 mkdir %directory%\%folderName%\.maps &^
 mkdir %directory%\%folderName%\.maps\.uv &^
@@ -120,7 +120,7 @@ echo:
 
 
 
-set "folderName=.animation"
+set "folderName=animation"
 mkdir %directory%\%folderName% &^
 mkdir %directory%\%folderName%\.frames &^
 echo %folderName% and all subdirectories; created.
@@ -128,14 +128,14 @@ echo:
 
 
 
-set "folderName=.audio"
+set "folderName=audio"
 mkdir %directory%\%folderName% &^
 echo %folderName% and all subdirectories; created.
 echo:
 
 
 
-set "folderName=.scenes"
+set "folderName=scenes"
 mkdir %directory%\%folderName% &^
 mkdir %directory%\%folderName%\.assets &^
 echo %folderName% and all subdirectories; created.

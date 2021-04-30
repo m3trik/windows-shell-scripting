@@ -36,8 +36,8 @@ IF ERRORLEVEL 1 goto create
 
 :create
 ECHO/
-mklink /J "%directory%\ZScripts" "%CLOUD%\Graphics\Zbrush\_symlinks\ZScripts"
-mklink /J "%directory%\ZStartup" "%CLOUD%\Graphics\Zbrush\_symlinks\ZStartup"
+mklink /J "%directory%\ZScripts" "%CLOUD%\Graphics\ZBrush\_symlinks\ZScripts"
+mklink /J "%directory%\ZStartup" "%CLOUD%\Graphics\ZBrush\_symlinks\ZStartup"
 
 goto main
 
