@@ -1,4 +1,7 @@
 @echo off
+:: This script runs the Deployment Image Servicing and Management (DISM) and the System File Checker (SFC) tool. DISM is useful to recover the replacement files needed by SFC in order to fix corrupted or missing system files.
+:: This script must be run with elevated privaliges.
+
 REM Use the System File Checker tool to repair missing or corrupted system files:
 
 REM After the process is finished, you may receive one of the following messages:
