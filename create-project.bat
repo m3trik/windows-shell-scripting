@@ -12,7 +12,7 @@ set "subFolderPrefix=%projectName%"
 
 rem set initial folder location
 rem set "folderLocation=%~dp0"  <use this instead of line below to default to batch file dir location.
-set "folderLocation=\\m3trik-Server\NAS\Graphics\___Projects"
+set "folderLocation=%CLOUD%\Graphics\___Projects"
 rem strip any trailing '\'
 if %folderLocation:~-1%==\ SET folderLocation=%folderLocation:~0,-1%
 
@@ -45,7 +45,7 @@ if not exist %folderLocation% (
 
 :main-menu
 cls
-echo directory: %folderLocation%
+echo CWD: %folderLocation%
 echo:
 echo:
 echo:
@@ -81,12 +81,13 @@ if errorlevel 1 goto create
 cls
 echo checking to see if %directory% exists...
 
-if exist %directory% ^
-echo "...project already exists."
+if exist "%directory%" ^
+echo "Directory already exists."
 
-if not exist %directory% ^
-mkdir %directory% &^
-echo "...project created."
+if not exist "%directory%" ^
+echo "Directory does not exist. Creating ..."
+mkdir "%directory%" &^
+echo "Directory %folderName% created."
 echo:
 
 
@@ -96,53 +97,53 @@ echo:
 
 
 set "folderName=client"
-mkdir %directory%\%folderName% &^
-mkdir %directory%\%folderName%\.revisions &^
-echo %folderName% and all subdirectories; created.
+mkdir "%directory%\%folderName%" &^
+mkdir "%directory%\%folderName%\revisions" &^
+echo %folderName% and all subdirectories; Created.
 echo:
 
 
 set "folderName=images"
-mkdir %directory%\%folderName% &^
-mkdir %directory%\%folderName%\.reference_images &^
-mkdir %directory%\%folderName%\.render &^
-echo %folderName% and all subdirectories; created.
+mkdir "%directory%\%folderName%" &^
+mkdir "%directory%\%folderName%\reference_images" &^
+mkdir "%directory%\%folderName%\render" &^
+echo %folderName% and all subdirectories; Created.
 echo:
 
 
 
 set "folderName=textures"
-mkdir %directory%\%folderName% &^
-mkdir %directory%\%folderName%\.maps &^
-mkdir %directory%\%folderName%\.maps\.uv &^
+mkdir "%directory%\%folderName%" &^
+mkdir "%directory%\%folderName%\maps" &^
+mkdir "%directory%\%folderName%\maps\uv" &^
 echo %folderName% and all subdirectories; created.
 echo:
 
 
 
 set "folderName=animation"
-mkdir %directory%\%folderName% &^
-mkdir %directory%\%folderName%\.frames &^
+mkdir "%directory%\%folderName%" &^
+mkdir "%directory%\%folderName%\frames" &^
 echo %folderName% and all subdirectories; created.
 echo:
 
 
 
 set "folderName=audio"
-mkdir %directory%\%folderName% &^
+mkdir "%directory%\%folderName%" &^
 echo %folderName% and all subdirectories; created.
 echo:
 
 
 
 set "folderName=scenes"
-mkdir %directory%\%folderName% &^
-mkdir %directory%\%folderName%\.assets &^
+mkdir "%directory%\%folderName%" &^
+mkdir "%directory%\%folderName%\assets" &^
 echo %folderName% and all subdirectories; created.
 echo:
 
 
-
+echo "Project: %projectName% successfully created."
 pause
 exit
 
