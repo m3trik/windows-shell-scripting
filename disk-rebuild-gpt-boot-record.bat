@@ -29,7 +29,7 @@ echo delete partition
 echo create partition EFI size=100 offset=1
 echo format quick fs=fat32 label="System"
 echo assign letter=S
-echo create partition msr size=128 offset=103424
+echo create partition msr size=128
 echo list partition
 )  | diskpart
 
