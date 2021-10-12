@@ -4,7 +4,7 @@ ECHO Create or remove 3ds Max junctions.
 ECHO Attempts to compress the contents at the original dir location if it is present.
 ECHO/
 set "WINRAR=%ProgramFiles%\WinRAR\Rar.exe"
-set "DEST=%CLOUD%\Graphics\3ds Max\_symlinks\preferences"
+set "DEST=%CLOUD%\Graphics\3ds Max\_symlinks"
 
 goto version
 
@@ -12,8 +12,6 @@ goto version
 
 
 :version
-rem set variables (deprecated)
-rem set /p VERSION=Enter 3ds Max version (ie.20xx):
 ECHO/
 set "SOURCE=%USERPROFILE%\AppData\Local\Autodesk\3dsMax"
 

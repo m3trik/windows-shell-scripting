@@ -20,7 +20,7 @@ IF ERRORLEVEL 1 goto create
 
 
 :create
-mklink /J "%USERPROFILE%\Documents\maya" "%CLOUD%\Graphics\Maya\_symlinks\preferences"
+mklink /J "%USERPROFILE%\Documents\maya" "%CLOUD%\Graphics\Maya\_symlinks"
 goto main
 
 
