@@ -1,16 +1,17 @@
-:: ------------------------------------------------------------------------
-:: This script will get rid of any subfolders while keeping their contents.
-:: ------------------------------------------------------------------------
-
+@ ECHO off
 CLS
-goto setPath
+
+:start
+echo ------------------------------------------------------------------------
+echo This script will get rid of any subfolders while keeping their contents.
+echo ------------------------------------------------------------------------
 
 
-:: set variables
+
 :setPath
 set /p PARENT_DIR=Parent dir ?
 set "MOVETO_DIR=%PARENT_DIR%"
-:: Set filetype. (*) all filetypes. (*.ext) explicit.
+:: filter by filetype. (valid: * (all), *.ext (explicit))
 set FILETYPE=*
 
 
@@ -23,4 +24,8 @@ for /r "%PARENT_DIR%" %%i in (%FILETYPE%) do @move "%%i" "%MOVETO_DIR%"
 for /d %%i in ("%PARENT_DIR%"\*) do @rmdir /s /q "%%i"
 
 
-goto setPath
+
+PAUSE
+CLS
+echo restarting ..
+goto start
