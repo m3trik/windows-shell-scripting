@@ -11,5 +11,6 @@ set /p _PYTHON="C:\Program Files\Autodesk\3ds Max 2020\3dsmaxpy.exe"
 
 
 %_PYTHON% %_MODULE%
+%_PYTHON% pip install --upgrade pip
 
 PAUSE

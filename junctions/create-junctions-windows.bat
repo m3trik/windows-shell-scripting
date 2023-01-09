@@ -68,7 +68,7 @@ goto create
 ECHO/
 echo links
 set source=%USERPROFILE%\Favorites\Links
-set destination=%CLOUD%\Windows\_symlinks\Links
+set destination=C:\_local\_symlinks\Links
 
 ECHO	1- Create Junction at %source% to %destination%.
 ECHO	2- Delete Junction at %source%.
@@ -87,8 +87,7 @@ IF ERRORLEVEL 1 goto create
 ECHO/
 echo start menu
 set source=%USERPROFILE%\AppData\Roaming\Microsoft\Windows\Start Menu
-rem set source=%USERPROFILE%\Desktop\new folder
-set destination=%CLOUD%\Windows\_symlinks\Start Menu
+set destination=C:\_local\_symlinks\Start Menu
 
 ECHO	1- Create Junction at %source% to %destination%.
 ECHO	2- Delete Junction at %source%.
@@ -107,7 +106,7 @@ IF ERRORLEVEL 1 goto create
 ECHO/
 echo downloads
 set source=%USERPROFILE%\downloads
-set destination=%CLOUD%\Downloads
+set destination=C:\_local\_symlinks\Downloads
 
 ECHO	1- Create Junction at %source% to %destination%.
 ECHO	2- Delete Junction at %source%.

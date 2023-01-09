@@ -1,7 +1,5 @@
 @echo OFF
 CLS
-echo.
-echo	**If you have not already, you must first move and delete or zip original folders in default program directory so that the script is able to populate a new junction link in its place.**
 goto version
 
 
@@ -11,7 +9,10 @@ goto version
 echo.
 set /p version=Enter the zbrush version (ie.20xx):
 set directory=%ProgramFiles%\Pixologic\ZBrush %version%
-
+echo.
+echo	**If you have not already, you must first move, delete, or 
+echo	zip '\ZScripts' and '\ZStartup' at: %directory% 
+echo	so that the script is able to populate a new junction link in their place.**
 goto main
 
 

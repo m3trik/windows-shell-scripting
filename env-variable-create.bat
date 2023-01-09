@@ -1,7 +1,7 @@
 @ECHO OFF
 
 rem -----------------------------------------------------------------------
-rem **This command must be run as Administrator**
+rem **This script must be run as Administrator**
 
 rem SETX: This program is used to set values in the environment
 rem		of the machine or currently logged on user using one of three modes.
