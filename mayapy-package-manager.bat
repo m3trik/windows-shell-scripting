@@ -1,5 +1,11 @@
 @ECHO off
 :: pip needs to already have been installed to mayapy.
+:: the following commands are for a windows environment.
+
+:: Admin check
+rem fltmc >nul 2>nul || set _=^"set _ELEV=1^& cd /d """%cd%"""^& "%~f0" %* ^"&&((if "%_ELEV%"=="" ((powershell -nop -c start cmd -args '/d/x/s/v:off/r',$env:_ -verb runas >nul 2>nul) || (mshta vbscript:execute^("createobject(""shell.application"").shellexecute(""cmd"",""/d/x/s/v:off/r ""&createobject(""WScript.Shell"").Environment(""PROCESS"")(""_""),,""runas"",1)(window.close)"^) >nul 2>nul)))& exit /b)
+
+
 :intro
 color 07
 set ver=0.5.0
@@ -62,7 +68,10 @@ goto main
 
 :update
 ECHO\
-ECHO Which package do you want to UPDATE? (`all` will attempt to update all packages. `pip` will update the package installer)
+ECHO Which package do you want to UPDATE?
+rem ECHO `all` will attempt to update all packages
+rem ECHO `pip` will update the package installer
+rem ECHO or give the name of a specific package:
 set /p module=
 ECHO\
 if "%module%"=="all" (
