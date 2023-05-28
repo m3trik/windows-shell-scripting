@@ -13,7 +13,7 @@ echo %mayapy%
 
 :setModule
 ECHO/
-ECHO Give the name of the module to install:
+ECHO Give the name of a module to install:
 set /p module=
 ECHO/
 
