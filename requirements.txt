@@ -1,0 +1,9 @@
+future==0.18.2
+mayatk==0.9.2
+pymel==1.2.0
+PySide2==5.15.2
+pythontk==0.7.3
+shiboken2==5.15.2
+shiboken2-generator==5.15.2
+tentacletk==0.9.1
+uitk==1.0.1

@@ -7,11 +7,11 @@
   },
   {
    "optionDest": "filenames",
-   "value": "O:/Cloud/Code/Python/_scripts/map_compositor.py"
+   "value": "O:/Cloud/Code/_scripts/map-compositor/map_compositor/_map_compositor.py"
   },
   {
    "optionDest": "onefile",
-   "value": false
+   "value": true
   },
   {
    "optionDest": "console",
@@ -67,59 +67,19 @@
   },
   {
    "optionDest": "datas",
-   "value": "O:/Cloud/Code/Python/_scripts/txtools.py;."
+   "value": "O:/Cloud/Code/_scripts/pythontk/pythontk;pythontk/"
   },
   {
    "optionDest": "datas",
-   "value": "O:/Cloud/Code/Python/_scripts/txtools.json;."
+   "value": "O:/Cloud/Code/_scripts/mayatk/mayatk;mayatk/"
   },
   {
    "optionDest": "datas",
-   "value": "O:/Cloud/Code/Python/_scripts/map_compositor.ui;."
+   "value": "O:/Cloud/Code/_scripts/map-compositor/map_compositor;map_compositor/"
   },
   {
    "optionDest": "datas",
-   "value": "O:/Cloud/Code/Python/_scripts/imtools.py;."
-  },
-  {
-   "optionDest": "hiddenimports",
-   "value": "switchboard"
-  },
-  {
-   "optionDest": "hiddenimports",
-   "value": "PySide2.QtUiTools"
-  },
-  {
-   "optionDest": "datas",
-   "value": "O:/Cloud/Code/_scripts/tentacle/tentacle/ui;ui/"
-  },
-  {
-   "optionDest": "datas",
-   "value": "O:/Cloud/Code/_scripts/tentacle/tentacle/slots;slots/"
-  },
-  {
-   "optionDest": "datas",
-   "value": "O:/Cloud/Code/_scripts/tentacle/tentacle;tentacle/"
-  },
-  {
-   "optionDest": "pathex",
-   "value": "O:/Cloud/Code/_scripts/tentacle/tentacle"
-  },
-  {
-   "optionDest": "pathex",
-   "value": "O:/Cloud/Code/_scripts/tentacle/tentacle/slots"
-  },
-  {
-   "optionDest": "pathex",
-   "value": "O:/Cloud/Code/_scripts/tentacle/tentacle/ui"
-  },
-  {
-   "optionDest": "pathex",
-   "value": "O:/Cloud/Code/_scripts/tentacle/tentacle/ui/widgets"
-  },
-  {
-   "optionDest": "pathex",
-   "value": "O:/Cloud/Code/Python/_scripts"
+   "value": "O:/Cloud/Code/_scripts/uitk/uitk;uitk/"
   }
  ],
  "nonPyinstallerOptions": {
