@@ -123,3 +123,4 @@ goto main
 
 :end
 ECHO Exiting...
+rem cmd /k
