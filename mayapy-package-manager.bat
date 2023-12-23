@@ -1,20 +1,30 @@
 @ECHO off
-:: Maya Python Package Manager
-:: pip needs to already have been installed to mayapy.
-:: The following commands are for a Windows environment.
+:: Maya Python Package Manager for Windows
+:: Requires: pip needs to already have been installed to mayapy.
 
 :intro
 color 07
-set ver=1.0.0
+set ver=1.0.1
 powershell -Command "Write-Host 'Maya Python Package Manager v%ver%' -ForegroundColor Cyan"
 ECHO\
-
 
 :setVersion
 ECHO What is your Maya version? (ex. 2022)
 set /p maya_version=
 set mayapy="%ProgramFiles%\Autodesk\Maya%maya_version%\bin\mayapy.exe"
-echo  Using Python interpreter at %mayapy%
+goto validateMayapyPath
+
+:validateMayapyPath
+IF EXIST %mayapy% (
+    echo  Found Python interpreter at %mayapy%
+    goto main
+) ELSE (
+    ECHO The specified Maya Python path is not valid.
+    ECHO Please enter the full path to the mayapy executable.
+    ECHO Hint: Typically located in the Autodesk Maya install directory, under the 'bin' folder.
+    set /p mayapy="Enter full mayapy path: "
+    goto validateMayapyPath
+)
 
 
 :main
