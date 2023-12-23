@@ -5,7 +5,7 @@
 
 :intro
 color 07
-set ver=0.5.1
+set ver=1.0.0
 powershell -Command "Write-Host 'Maya Python Package Manager v%ver%' -ForegroundColor Cyan"
 ECHO\
 
